@@ -1,4 +1,3 @@
-from email.mime import audio
 import audioextractor
 import audiosplitter
 
