@@ -6,9 +6,10 @@ class Audio:
     
     def __init__(self, audio_id):
         self.audio_id = audio_id
-        self.audio_signal, self.audio_sr = librosa.load("splitted-audio/" + self.audio_id + ".mp3")
+        self.audio_signal, self.audio_sr = librosa.load("splitted-audio/" + self.audio_id)
         self.audio_spectrogram = librosa.stft(self.audio_signal, n_fft=constants.FRAME_LENGTH, hop_length=constants.HOP_LENGTH)
         self.audio_features = {}
+        self.audio_label = ""
         
     def __str__(self):
         output = ""
@@ -17,7 +18,7 @@ class Audio:
         return output
         
     def extract_features(self):
-        print("Extracting audio features")
+        print("Extracting audio features for audio ID " + self.audio_id)
         self.audio_features[constants.AMPLITUDE_ENVELOPE] = \
             featureextractor.get_amplitude_envelope(self.audio_signal, constants.FRAME_LENGTH, constants.HOP_LENGTH)
         self.audio_features[constants.RMS_ENERGY] = \

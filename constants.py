@@ -8,3 +8,6 @@ RMS_ENERGY = "rms_energy"
 ZERO_CROSSING_RATE = "zero_crossing_rate"
 MFCCS = "mfccs"
 BAND_ENERGY_RATIO = "band_energy_ratio"
+
+AGGRESSIVE = "agressive"
+NON_AGGRESSIVE = "non_aggressive"

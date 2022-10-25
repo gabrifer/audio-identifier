@@ -3,7 +3,9 @@ import librosa
 import librosa.display as ld
 import matplotlib.pyplot as plt
 import numpy as np
-import constants
+import warnings
+
+warnings.filterwarnings("ignore", message="PySoundFile failed. Trying audioread instead.")
 
 def get_amplitude_envelope(signal, frame_length, hop_length):
     return np.array([max(signal[i:i+frame_length]) for i in range(0, signal.size, hop_length)])
@@ -48,18 +50,3 @@ def plot_signal(signal, title):
 
     plt.show()
     
-
-    
-
-# signal, sr = librosa.load('splitted-audio/_79oAUT37Og-chunk1.mp3')
-# spectrogram = librosa.stft(signal, n_fft=constants.FRAME_LENGTH, hop_length=constants.HOP_LENGTH)
-
-# print(get_amplitude_envelope(signal, constants.FRAME_LENGTH, constants.HOP_LENGTH))
-# print(get_rms_energy(signal, constants.FRAME_LENGTH, constants.HOP_LENGTH))
-# print(get_zero_crossing_rate(signal, constants.FRAME_LENGTH, constants.HOP_LENGTH))
-# print(get_mfccs(signal, constants.N_MFCCS, sr))
-# print(get_band_energy_ratio(spectrogram, constants.SPLIT_FREQUENCY, sr))
-
-
-
-
