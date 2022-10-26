@@ -9,6 +9,7 @@ class Audio:
         self.audio_signal, self.audio_sr = librosa.load("splitted-audio/" + self.audio_id)
         self.audio_spectrogram = librosa.stft(self.audio_signal, n_fft=constants.FRAME_LENGTH, hop_length=constants.HOP_LENGTH)
         self.audio_features = {}
+        self.audio_features_as_list = {}
         self.audio_label = ""
         
     def __str__(self):
@@ -29,5 +30,13 @@ class Audio:
             featureextractor.get_mfccs(self.audio_signal, constants.N_MFCCS, self.audio_sr)
         self.audio_features[constants.BAND_ENERGY_RATIO] = \
             featureextractor.get_band_energy_ratio(self.audio_spectrogram, constants.SPLIT_FREQUENCY, self.audio_sr)
+            
+        # We store all features as lists in order to enable proper JSON encoding
+        self.__store_audio_features_as_list()
+            
+    def __store_audio_features_as_list(self):
+        for k, v in self.audio_features.items():
+            self.audio_features_as_list[k] = v.tolist()
+        
         
     

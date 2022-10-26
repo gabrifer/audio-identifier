@@ -35,6 +35,7 @@ def get_band_energy_ratio(spectrogram, split_frequency, sr):
     for frame in power_spectrogram:
         sum_power_low_frequencies = frame[:split_frequency_bin].sum()
         sum_power_high_frequencies = frame[split_frequency_bin:].sum()
+        if sum_power_high_frequencies == 0: continue
         band_energy_ratio_current_frame = sum_power_low_frequencies / sum_power_high_frequencies
         band_energy_ratio.append(band_energy_ratio_current_frame)
     
