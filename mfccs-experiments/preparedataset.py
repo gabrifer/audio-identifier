@@ -50,6 +50,8 @@ def prepare_dataset(dataset_path, json_path, n_mfcc=13, hop_length=512, n_fft=20
                     
                     data["files"].append(f)
                     
+    
+    print(f"Processed {len(data['files'])} files")                
                     
     with open(json_path, "w") as fp:
         json.dump(data, fp, indent=4)

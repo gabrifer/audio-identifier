@@ -7,7 +7,7 @@ def extract_audios():
 
     print("Starting audios extraction")
 
-    destination = os.getcwd() + "/extrated-audio"
+    destination = os.getcwd() + "/extracted-audio"
 
     pattern = r'(?:https?:\/\/)?(?:[0-9A-Z-]+\.)?(?:youtube|youtu|youtube-nocookie)\.(?:com|be)\/(?:watch\?v=|watch\?.+&v=|embed\/|v\/|.+\?v=)?([^&=\n%\?]{11})'
 

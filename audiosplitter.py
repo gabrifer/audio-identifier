@@ -9,7 +9,7 @@ def split_audios():
 
     print("Starting audios splitting")
 
-    extracted_audios_path = os.getcwd() + "/extrated-audio/"
+    extracted_audios_path = os.getcwd() + "/extracted-audio/"
     splitted_audios_path =  os.getcwd() + "/splitted-audio"
 
     extracted_audios_files_list = os.listdir(extracted_audios_path)
