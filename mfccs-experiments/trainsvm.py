@@ -61,6 +61,7 @@ def main():
     
     print(f"Recall score: {recall_score(y, y_pred)}")
     print(f"Precision score: {precision_score(y, y_pred)}")
+    print(classification_report(y,y_pred))
 
 
 main()
